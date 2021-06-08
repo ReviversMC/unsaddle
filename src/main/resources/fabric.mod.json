@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "id": "unsaddleeeee",
+  "version": "${version}",
+  "name": "Unsaddleeeee",
+  "description": "Unsaddle pigs and striders... That's it, the whole mod :v).",
+  "authors": [
+    "alkyaLy"
+  ],
+  "contact": {
+    "sources": "https://github.com/alkyaly/Unsaddleeeee",
+    "issues": "https://github.com/alkyaly/Unsaddleeeee/issues"
+  },
+  "license": "MIT",
+  "environment": "*",
+
+  "mixins": [
+    "unsaddleeeee.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "*",
+    "minecraft": ">=1.17",
+    "java": ">=16"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.alkyaly.unsaddleeeee.mixin",
+  "compatibilityLevel": "JAVA_16",
+  "mixins": [
+    "PigEntityMixin",
+    "StriderEntityMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
