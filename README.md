@@ -1,4 +1,4 @@
-<img height="70" align="right" src="./unsaddle-1.17/src/main/resources/assets/unsaddle/icon.png">
+<img height="70" align="right" src="./assets/unsaddle-icon-transparent.png">
 
 # Unsaddle
 [![CurseForge downloads](https://cf.way2muchnoise.eu/unsaddle.svg)](https://www.curseforge.com/minecraft/mc-mods/unsaddle)
