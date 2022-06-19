@@ -19,13 +19,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PigEntity.class)
 public abstract class PigEntityMixin extends AnimalEntity {
+    @Shadow @Final private static TrackedData<Boolean> SADDLED;
+
     protected PigEntityMixin(EntityType<? extends AnimalEntity> entityType, World world) {
         super(entityType, world);
     }
 
     @Shadow public abstract boolean isSaddled();
-
-    @Shadow @Final private static TrackedData<Boolean> SADDLED;
 
     @Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
     private void removeSaddle(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
