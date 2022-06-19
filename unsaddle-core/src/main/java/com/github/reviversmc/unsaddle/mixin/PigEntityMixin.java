@@ -1,4 +1,4 @@
-package io.github.alkyaly.unsaddleeeee.mixin;
+package com.github.reviversmc.unsaddle.mixin;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.TrackedData;
