@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17"
+          distribution: "temurin"
+          cache: gradle
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Validate Gradle wrapper
+        uses: gradle/wrapper-validation-action@v1
+
+      - name: Build 1.17 project
+        run: ./gradlew :unsaddle-1.17:build --no-daemon --stacktrace
+
+      - name: Publish 1.17 version
+        uses: Kir-Antipov/mc-publish@v3.0
+        with:
+          modrinth-id: WRzU60Pt
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+
+          curseforge-id: 552358
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+          files-primary: unsaddle-1.17/build/libs/!(*-@(dev|sources)).jar
+
+          name: Unsaddle 0.1.0 for 1.17 to 1.19
+          version: 0.1.0+1.17
+          version-type: release
+
+          loaders: |
+            fabric
+
+          game-versions: |
+            1.17
+            1.17.1
+            1.18
+            1.18.1
+            1.18.2
+            1.19
+
+          dependencies: |
+            modmenu       | recommends
