@@ -31,10 +31,10 @@ jobs:
       - name: Publish 1.17 version
         uses: Kir-Antipov/mc-publish@v3.0
         with:
-          modrinth-id:
+          modrinth-id: 45F9B0j8
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
 
-          curseforge-id:
+          curseforge-id: 635110
           curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
 
           github-token: ${{ secrets.GITHUB_TOKEN }}
