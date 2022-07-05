@@ -29,7 +29,7 @@ jobs:
         run: ./gradlew :unsaddle-1.17:build --no-daemon --stacktrace
 
       - name: Publish 1.17 version
-        uses: Kir-Antipov/mc-publish@v3.0
+        uses: Kir-Antipov/mc-publish@v3.1
         with:
           modrinth-id: 45F9B0j8
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
