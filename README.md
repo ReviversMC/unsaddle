@@ -7,4 +7,8 @@
 ![Environment: server](https://img.shields.io/badge/environment-server-1976d2?style=flat)
 [![Discord chat](https://img.shields.io/badge/chat%20on-discord-7289DA?logo=discord&logoColor=white)](https://discord.gg/6bTGYFppfz)
 
-Small Fabric mixins mod that allows the player to remove the saddle from saddled animals without having to kill them unmercifully. Sneak + right-click a saddled animal (Strider or Pig) to retrieve its saddle.
+**Unsaddle** is a very small mod that hat allows the player to remove saddles from animals without having to kill them unmercifully. Sneak + rightclick a saddled animal (Strider or Pig) to retrieve its saddle.
+
+Continuation of alkyaLy's [Unsaddleeeee](https://web.archive.org/web/20211202230803/https://www.curseforge.com/minecraft/mc-mods/unsaddleeeee) mod.
+
+[<img src="https://i.imgur.com/Ol1Tcf8.png" alt="Requires Fabric API" width="170"/>](https://modrinth.com/mod/fabric-api)
