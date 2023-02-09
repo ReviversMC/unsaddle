@@ -23,7 +23,8 @@ public abstract class AbstractDonkeyEntityMixin extends HorseBaseEntity implemen
 		super(entityType, world);
 	}
 
-	@Shadow public abstract boolean hasChest();
+	@Shadow
+	public abstract boolean hasChest();
 
 	@Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
 	private void unsaddle_removeChest(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> callback) {
