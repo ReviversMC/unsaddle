@@ -9,8 +9,8 @@
 		"alkyaLy"
 	],
 	"contact": {
-		"sources": "https://github.com/ReviversMC/Unsaddle",
-		"issues": "https://github.com/ReviversMC/Unsaddle/issues"
+		"sources": "https://github.com/ReviversMC/unsaddle",
+		"issues": "https://github.com/ReviversMC/unsaddle/issues"
 	},
 	"icon": "assets/unsaddle/icon.png",
 	"license": "LGPL-3.0-or-later",

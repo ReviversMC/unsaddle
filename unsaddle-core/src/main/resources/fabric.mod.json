@@ -3,16 +3,6 @@
 	"id": "unsaddle-core",
 	"version": "${version}",
 	"name": "Unsaddle Core",
-	"description": "Cross Minecraft version compatible components of Unsaddle",
-	"authors": [
-		"NebelNidas",
-		"alkyaLy"
-	],
-	"contact": {
-		"sources": "https://github.com/ReviversMC/Unsaddle",
-		"issues": "https://github.com/ReviversMC/Unsaddle/issues"
-	},
-	"license": "LGPL-3.0-or-later",
 	"environment": "*",
 	"mixins": [
 		"unsaddle.mixins.json"
@@ -20,9 +10,6 @@
 	"depends": {
 		"fabricloader": ">=0.12.9",
 		"minecraft": ">=1.17"
-	},
-	"recommends": {
-		"modmenu": "*"
 	},
 	"custom": {
 		"modmenu": {
