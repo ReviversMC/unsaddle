@@ -17,27 +17,27 @@ import com.github.reviversmc.unsaddle.mixinterface.AbstractDonkeyEntityMixinterf
 
 @Mixin(AbstractDonkeyEntity.class)
 public abstract class AbstractDonkeyEntityMixin extends HorseBaseEntity implements AbstractDonkeyEntityMixinterface {
-    public boolean currentlyRemovingChest;
+	public boolean currentlyRemovingChest;
 
-    protected AbstractDonkeyEntityMixin(EntityType<? extends AbstractDonkeyEntity> entityType, World world) {
-        super(entityType, world);
-    }
+	protected AbstractDonkeyEntityMixin(EntityType<? extends AbstractDonkeyEntity> entityType, World world) {
+		super(entityType, world);
+	}
 
-    @Shadow public abstract boolean hasChest();
+	@Shadow public abstract boolean hasChest();
 
-    @Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
-    private void unsaddle_removeChest(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> callback) {
-        if (player.isSneaking() && hasChest() && !hasPassengers()) {
-            currentlyRemovingChest = true;
-            dropInventory();
-            onChestedStatusChanged();
-            currentlyRemovingChest = false;
-            callback.setReturnValue(ActionResult.SUCCESS);
-        }
-    }
+	@Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
+	private void unsaddle_removeChest(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> callback) {
+		if (player.isSneaking() && hasChest() && !hasPassengers()) {
+			currentlyRemovingChest = true;
+			dropInventory();
+			onChestedStatusChanged();
+			currentlyRemovingChest = false;
+			callback.setReturnValue(ActionResult.SUCCESS);
+		}
+	}
 
-    @Override
-    public boolean isCurrentlyRemovingChest() {
-        return currentlyRemovingChest;
-    }
+	@Override
+	public boolean isCurrentlyRemovingChest() {
+		return currentlyRemovingChest;
+	}
 }

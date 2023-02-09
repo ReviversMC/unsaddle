@@ -18,15 +18,15 @@ import net.minecraft.world.entity.EntityLike;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput {
-    private Entity object = (Entity) (Object) this;
+	private Entity object = (Entity) (Object) this;
 
-    @Inject(method = "dropStack", at = @At("HEAD"), cancellable = true)
-    private void unsaddle_dropStack(ItemStack stack, CallbackInfoReturnable<ActionResult> callback) {
-        if (object instanceof AbstractDonkeyEntity donkey) {
-            if (((AbstractDonkeyEntityMixinterface) donkey).isCurrentlyRemovingChest()
-                    && stack.getItem() instanceof SaddleItem) {
-                callback.cancel();
-            }
-        }
-    }
+	@Inject(method = "dropStack", at = @At("HEAD"), cancellable = true)
+	private void unsaddle_dropStack(ItemStack stack, CallbackInfoReturnable<ActionResult> callback) {
+		if (object instanceof AbstractDonkeyEntity donkey) {
+			if (((AbstractDonkeyEntityMixinterface) donkey).isCurrentlyRemovingChest()
+					&& stack.getItem() instanceof SaddleItem) {
+				callback.cancel();
+			}
+		}
+	}
 }

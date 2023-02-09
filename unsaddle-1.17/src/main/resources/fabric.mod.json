@@ -1,23 +1,23 @@
 {
-    "schemaVersion": 1,
-    "id": "unsaddle",
-    "version": "${version}",
-    "name": "Unsaddle",
-    "description": "Unsaddle entities, so you don't have to kill them!",
-    "authors": [
-        "NebelNidas",
-        "alkyaLy"
-    ],
-    "contact": {
-        "sources": "https://github.com/ReviversMC/Unsaddle",
-        "issues": "https://github.com/ReviversMC/Unsaddle/issues"
-    },
-    "icon": "assets/unsaddle/icon.png",
-    "license": "LGPL-3.0-or-later",
-    "environment": "*",
-    "depends": {
-        "fabricloader": ">=0.12.9",
-        "minecraft": ">=1.17",
-        "unsaddle-core": "*"
-    }
+	"schemaVersion": 1,
+	"id": "unsaddle",
+	"version": "${version}",
+	"name": "Unsaddle",
+	"description": "Unsaddle entities, so you don't have to kill them!",
+	"authors": [
+		"NebelNidas",
+		"alkyaLy"
+	],
+	"contact": {
+		"sources": "https://github.com/ReviversMC/Unsaddle",
+		"issues": "https://github.com/ReviversMC/Unsaddle/issues"
+	},
+	"icon": "assets/unsaddle/icon.png",
+	"license": "LGPL-3.0-or-later",
+	"environment": "*",
+	"depends": {
+		"fabricloader": ">=0.12.9",
+		"minecraft": ">=1.17",
+		"unsaddle-core": "*"
+	}
 }
