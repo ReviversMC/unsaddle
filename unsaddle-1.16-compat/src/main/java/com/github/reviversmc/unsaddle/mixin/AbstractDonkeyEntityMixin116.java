@@ -16,10 +16,10 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.github.reviversmc.unsaddle.mixinterface.AbstractDonkeyEntityMixinterface;
 
 @Mixin(AbstractDonkeyEntity.class)
-public abstract class AbstractDonkeyEntityMixin extends HorseBaseEntity implements AbstractDonkeyEntityMixinterface {
-	public boolean currentlyRemovingChest;
+public abstract class AbstractDonkeyEntityMixin116 extends HorseBaseEntity implements AbstractDonkeyEntityMixinterface {
+	private boolean currentlyRemovingChest;
 
-	protected AbstractDonkeyEntityMixin(EntityType<? extends AbstractDonkeyEntity> entityType, World world) {
+	protected AbstractDonkeyEntityMixin116(EntityType<? extends AbstractDonkeyEntity> entityType, World world) {
 		super(entityType, world);
 	}
 

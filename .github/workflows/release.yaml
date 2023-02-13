@@ -25,10 +25,10 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
 
-      - name: Build 1.17 version
-        run: ./gradlew :unsaddle-1.17:build --stacktrace
+      - name: Build mod
+        run: ./gradlew :build --stacktrace
 
-      - name: Publish 1.17 version
+      - name: Publish mod version
         uses: Kir-Antipov/mc-publish@v3.2
         with:
           modrinth-id: 45F9B0j8
@@ -39,26 +39,15 @@ jobs:
 
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-          files-primary: unsaddle-1.17/build/libs/!(*-@(dev|sources)).jar
+          files-primary: build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
 
-          name: 0.2.0 for MC 1.17 to 1.19
-          version: 0.2.0+1.17
+          name: 0.2.0 for MC 1.15 to 1.19
+          version: 0.2.0+1.15-1.16
           version-type: release
 
           loaders: |
             fabric
-
-          game-versions: |
-            1.17
-            1.17.1
-            1.18
-            1.18.1
-            1.18.2
-            1.19
-            1.19.1
-            1.19.2
-            1.19.3
 
           dependencies: |
             modmenu       | recommends

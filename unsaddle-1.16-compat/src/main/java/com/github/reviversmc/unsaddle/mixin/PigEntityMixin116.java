@@ -18,12 +18,12 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(PigEntity.class)
-public abstract class PigEntityMixin extends AnimalEntity {
+public abstract class PigEntityMixin116 extends AnimalEntity {
 	@Shadow
 	@Final
 	private static TrackedData<Boolean> SADDLED;
 
-	protected PigEntityMixin(EntityType<? extends AnimalEntity> entityType, World world) {
+	protected PigEntityMixin116(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
@@ -31,11 +31,11 @@ public abstract class PigEntityMixin extends AnimalEntity {
 	public abstract boolean isSaddled();
 
 	@Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
-	private void unsaddle_removeSaddle(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+	private void unsaddle_removeSaddle(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> callback) {
 		if (player.isSneaking() && isSaddled() && !hasPassengers()) {
 			dropStack(new ItemStack(Items.SADDLE));
 			dataTracker.set(SADDLED, false);
-			cir.setReturnValue(ActionResult.SUCCESS);
+			callback.setReturnValue(ActionResult.SUCCESS);
 		}
 	}
 }

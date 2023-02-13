@@ -1,14 +1,14 @@
 {
 	"schemaVersion": 1,
-	"id": "unsaddle-core",
+	"id": "unsaddle-compat-1-16",
 	"version": "${version}",
-	"name": "Unsaddle Core",
+	"name": "Unsaddle 1.16 Compat",
 	"environment": "*",
 	"mixins": [
-		"unsaddle.mixins.json"
+		"unsaddle-compat-1-16.mixins.json"
 	],
 	"depends": {
-		"minecraft": ">=1.15"
+		"unsaddle-compat-1-15": "*"
 	},
 	"custom": {
 		"modmenu": {

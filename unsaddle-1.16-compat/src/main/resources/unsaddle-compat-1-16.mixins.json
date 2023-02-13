@@ -3,9 +3,12 @@
 	"package": "com.github.reviversmc.unsaddle.mixin",
 	"compatibilityLevel": "JAVA_8",
 	"mixins": [
-		"EntityMixin"
+		"AbstractDonkeyEntityMixin116",
+		"PigEntityMixin116",
+		"StriderEntityMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
-	}
+	},
+	"plugin": "com.github.reviversmc.unsaddle.MixinPlugin116"
 }

@@ -10,14 +10,15 @@
 	],
 	"contact": {
 		"sources": "https://github.com/ReviversMC/unsaddle",
-		"issues": "https://github.com/ReviversMC/unsaddle/issues"
+		"issues": "https://github.com/ReviversMC/unsaddle/issues",
+		"homepage": "https://www.curseforge.com/minecraft/mc-mods/unsaddle"
 	},
 	"icon": "assets/unsaddle/icon.png",
 	"license": "LGPL-3.0-or-later",
 	"environment": "*",
 	"depends": {
+		"minecraft": ">=1.15",
 		"fabricloader": ">=0.12.9",
-		"minecraft": ">=1.17",
-		"unsaddle-core": "*"
+		"unsaddle-compat-1-16": "*"
 	}
 }

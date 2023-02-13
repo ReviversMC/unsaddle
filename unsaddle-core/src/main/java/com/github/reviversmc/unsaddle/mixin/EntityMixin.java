@@ -9,18 +9,16 @@ import net.minecraft.entity.passive.AbstractDonkeyEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.SaddleItem;
 import net.minecraft.server.command.CommandOutput;
-import net.minecraft.util.ActionResult;
 import net.minecraft.util.Nameable;
-import net.minecraft.world.entity.EntityLike;
 
 import com.github.reviversmc.unsaddle.mixinterface.AbstractDonkeyEntityMixinterface;
 
 @Mixin(Entity.class)
-public abstract class EntityMixin implements Nameable, EntityLike, CommandOutput {
+public abstract class EntityMixin implements Nameable, CommandOutput {
 	private Entity object = (Entity) (Object) this;
 
 	@Inject(method = "dropStack", at = @At("HEAD"), cancellable = true)
-	private void unsaddle_dropStack(ItemStack stack, CallbackInfoReturnable<ActionResult> callback) {
+	private void unsaddle_dropStack(ItemStack stack, CallbackInfoReturnable<?> callback) {
 		if (object instanceof AbstractDonkeyEntity) {
 			AbstractDonkeyEntity donkey = (AbstractDonkeyEntity) object;
 

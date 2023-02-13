@@ -3,7 +3,7 @@ package com.github.reviversmc.unsaddle.mixin;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.StriderEntity;
+import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -17,13 +17,13 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(StriderEntity.class)
-public abstract class StriderEntityMixin extends AnimalEntity {
+@Mixin(PigEntity.class)
+public abstract class PigEntityMixin115 extends AnimalEntity {
 	@Shadow
 	@Final
 	private static TrackedData<Boolean> SADDLED;
 
-	protected StriderEntityMixin(EntityType<? extends AnimalEntity> entityType, World world) {
+	protected PigEntityMixin115(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
@@ -31,11 +31,11 @@ public abstract class StriderEntityMixin extends AnimalEntity {
 	public abstract boolean isSaddled();
 
 	@Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
-	private void unsaddle_removeSaddle(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
+	private void unsaddle_removeSaddle(PlayerEntity player, Hand hand, CallbackInfoReturnable<Boolean> callback) {
 		if (player.isSneaking() && isSaddled() && !hasPassengers()) {
 			dropStack(new ItemStack(Items.SADDLE));
 			dataTracker.set(SADDLED, false);
-			cir.setReturnValue(ActionResult.SUCCESS);
+			callback.setReturnValue(true);
 		}
 	}
 }

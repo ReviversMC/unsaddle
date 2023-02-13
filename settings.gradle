@@ -16,4 +16,5 @@ pluginManagement {
 rootProject.name = 'unsaddle'
 
 include 'unsaddle-core'
-include 'unsaddle-1.17'
+include 'unsaddle-1.15-compat'
+include 'unsaddle-1.16-compat'
