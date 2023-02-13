@@ -17,7 +17,7 @@ import com.github.reviversmc.unsaddle.mixinterface.AbstractDonkeyEntityMixinterf
 
 @Mixin(AbstractDonkeyEntity.class)
 public abstract class AbstractDonkeyEntityMixin116 extends HorseBaseEntity implements AbstractDonkeyEntityMixinterface {
-	private boolean currentlyRemovingChest;
+	private boolean preventSaddleDrop;
 
 	protected AbstractDonkeyEntityMixin116(EntityType<? extends AbstractDonkeyEntity> entityType, World world) {
 		super(entityType, world);
@@ -29,16 +29,21 @@ public abstract class AbstractDonkeyEntityMixin116 extends HorseBaseEntity imple
 	@Inject(at = @At("HEAD"), method = "interactMob", cancellable = true)
 	private void unsaddle_removeChest(PlayerEntity player, Hand hand, CallbackInfoReturnable<ActionResult> callback) {
 		if (player.isSneaking() && hasChest() && !hasPassengers()) {
-			currentlyRemovingChest = true;
+			preventSaddleDrop = true;
 			dropInventory();
 			onChestedStatusChanged();
-			currentlyRemovingChest = false;
+			preventSaddleDrop = false;
 			callback.setReturnValue(ActionResult.SUCCESS);
 		}
 	}
 
 	@Override
-	public boolean isCurrentlyRemovingChest() {
-		return currentlyRemovingChest;
+	public boolean unsaddle_isPreventSaddleDrop() {
+		return preventSaddleDrop;
+	}
+
+	@Override
+	public void unsaddle_setPreventSaddleDrop(boolean value) {
+		preventSaddleDrop = value;
 	}
 }

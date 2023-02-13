@@ -1,5 +1,6 @@
 package com.github.reviversmc.unsaddle.mixinterface;
 
 public interface AbstractDonkeyEntityMixinterface {
-	boolean isCurrentlyRemovingChest();
+	boolean unsaddle_isPreventSaddleDrop();
+	void unsaddle_setPreventSaddleDrop(boolean value);
 }

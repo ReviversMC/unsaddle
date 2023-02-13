@@ -20,10 +20,11 @@ public abstract class EntityMixin implements Nameable, CommandOutput {
 	@Inject(method = "dropStack", at = @At("HEAD"), cancellable = true)
 	private void unsaddle_dropStack(ItemStack stack, CallbackInfoReturnable<?> callback) {
 		if (object instanceof AbstractDonkeyEntity) {
-			AbstractDonkeyEntity donkey = (AbstractDonkeyEntity) object;
+			AbstractDonkeyEntityMixinterface donkey = (AbstractDonkeyEntityMixinterface) (AbstractDonkeyEntity) object;
 
-			if (((AbstractDonkeyEntityMixinterface) donkey).isCurrentlyRemovingChest()
+			if (donkey.unsaddle_isPreventSaddleDrop()
 					&& stack.getItem() instanceof SaddleItem) {
+				donkey.unsaddle_setPreventSaddleDrop(false);
 				callback.cancel();
 			}
 		}
