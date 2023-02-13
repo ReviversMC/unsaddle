@@ -42,8 +42,8 @@ jobs:
           files-primary: build/libs/!(*-@(dev|sources)).jar
           files-secondary: null
 
-          name: 0.2.0 for MC 1.15 to 1.19
-          version: 0.2.0+1.15-1.16
+          name: 0.2.1 for MC 1.15 to 1.19
+          version: 0.2.1+1.15-1.16
           version-type: release
 
           loaders: |
