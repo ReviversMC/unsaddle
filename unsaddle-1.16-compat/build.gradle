@@ -1,9 +1,6 @@
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
-
-archivesBaseName += '-compat-1.16'
-
+base {
+	archivesName = archivesName.get() + '-compat-1.16'
+}
 
 dependencies {
 	api project(path: ':unsaddle-1.15-compat', configuration: 'namedElements')
@@ -21,17 +18,23 @@ dependencies {
 
 
 	if (project.use_third_party_mods == 'true') {
+		// Use full Fabric API bundle while debugging, since transitive deps aren't always declared correctly
 		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version_1_16}"
+
 		modRuntimeOnly "maven.modrinth:lazydfu:${project.lazydfu_version_1_16}"
 		modRuntimeOnly "maven.modrinth:sodium:${project.sodium_version_1_16}"
 		modRuntimeOnly "maven.modrinth:lithium:${project.lithium_version_1_16}"
 		modRuntimeOnly "maven.modrinth:phosphor:${project.phosphor_version_1_16}"
-		modRuntimeOnly "maven.modrinth:ferrite-core:${project.ferrite_core_version_1_16}"
+		modRuntimeOnly "maven.modrinth:ferrite-core:${project.ferritecore_version_1_16}"
 		modRuntimeOnly "maven.modrinth:smoothboot-fabric:${project.smoothboot_version_1_16}"
 		modRuntimeOnly "curse.maven:no-fade-452768:${project.no_fade_version_1_16}"
 	}
 }
 
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 8

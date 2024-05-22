@@ -18,7 +18,6 @@
 	"environment": "*",
 	"depends": {
 		"minecraft": ">=1.15",
-		"fabricloader": ">=0.12.9",
 		"unsaddle-compat-1-16": "*"
 	}
 }

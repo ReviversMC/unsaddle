@@ -10,10 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up JDK 17
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           java-version: "17"
           distribution: "temurin"
@@ -25,11 +25,11 @@ jobs:
       - name: Validate Gradle wrapper
         uses: gradle/wrapper-validation-action@v1
 
-      - name: Build mod
+      - name: Build the mod
         run: ./gradlew :build --stacktrace
 
       - name: Publish mod
-        uses: Kir-Antipov/mc-publish@v3.2
+        uses: Kir-Antipov/mc-publish@v3.3
         with:
           modrinth-id: 45F9B0j8
           modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
@@ -39,8 +39,7 @@ jobs:
 
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
-          files-primary: build/libs/!(*-@(dev|sources)).jar
-          files-secondary: null
+          files: build/libs/!(*-@(dev|sources)).jar
 
           name: 0.2.1 for MC 1.15 to 1.19
           version: 0.2.1+1.15-1.16
@@ -68,6 +67,14 @@ jobs:
             1.19.1
             1.19.2
             1.19.3
+            1.19.4
+            1.20
+            1.20.1
+            1.20.2
+            1.20.3
+            1.20.4
+            1.20.5
+            1.20.6
 
           dependencies: |
             modmenu       | recommends

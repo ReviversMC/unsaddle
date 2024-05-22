@@ -1,9 +1,6 @@
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
-
-
-archivesBaseName += '-compat-1.15'
-
+base {
+	archivesName = archivesName.get() + '-compat-1.15'
+}
 
 dependencies {
 	api project(path: ':unsaddle-core', configuration: 'namedElements')
@@ -22,13 +19,19 @@ dependencies {
 
 
 	if (project.use_third_party_mods == 'true') {
+		// Use full Fabric API bundle while debugging, since transitive deps aren't always declared correctly
 		modRuntimeOnly "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version_1_15}"
+
 		modRuntimeOnly "maven.modrinth:lazydfu:${project.lazydfu_version_1_15}"
 		modRuntimeOnly "curse.maven:phosphor-372124:${project.phosphor_version_1_15}"
 		modRuntimeOnly "curse.maven:smooth-boot-415758:${project.smoothboot_version_1_15}"
 	}
 }
 
+java {
+	sourceCompatibility = JavaVersion.VERSION_1_8
+	targetCompatibility = JavaVersion.VERSION_1_8
+}
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 8
