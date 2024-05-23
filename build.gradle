@@ -27,7 +27,10 @@ allprojects {
 
 	version = rootProject.mod_version
 	group = rootProject.maven_group
-	archivesBaseName = rootProject.archives_base_name
+
+	base {
+		archivesName = rootProject.archives_base_name
+	}
 
 
 	configurations {
