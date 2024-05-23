@@ -41,7 +41,7 @@ jobs:
 
           files: build/libs/!(*-@(dev|sources)).jar
 
-          name: 0.2.1 for MC 1.15 to 1.19
+          name: 0.2.1 for MC 1.15 to 1.20
           version: 0.2.1+1.15-1.16
           version-type: release
 
