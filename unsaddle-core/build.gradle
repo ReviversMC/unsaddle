@@ -8,15 +8,6 @@ archivesBaseName += '-core'
 dependencies {
 	minecraft "com.mojang:minecraft:${project.minecraft_version_1_15}"
 	mappings "net.fabricmc:yarn:${project.yarn_mappings_1_15}:v2"
-
-	// ModMenu
-	modImplementation "com.terraformersmc:modmenu:${project.modmenu_version_1_15}"
-
-	// Autoconfig & Cloth Config
-	modImplementation "me.sargunvohra.mcmods:autoconfig1u:${project.autoconfig_version_1_15}"
-	modImplementation("me.shedaniel.cloth:config-2:${project.cloth_config_version_1_15}") {
-		exclude(group: 'net.fabricmc.fabric-api')
-	}
 }
 
 
